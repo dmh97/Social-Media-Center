@@ -1,0 +1,29 @@
+/  LinkedinViewController.swift
+//  dhayes_SMC
+//
+//  Created by Darrell Michael Hayes on 11/12/23.
+//
+
+import UIKit
+import WebKit
+
+class LinkedinViewController: UIViewController, WKUIDelegate, WKNavigationDelegate  {
+    @IBOutlet weak var myWebView: WKWebView!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        myWebView.navigationDelegate = self
+        myWebView.allowsBackForwardNavigationGestures = true
+        myWebView.uiDelegate = self
+        
+        let myURL = URL ( string: "https://www.linkedin.com")
+        let myRequest = URLRequest(url: myURL!)
+        myWebView.load(myRequest)
+    }
+    
+
+   
+}
